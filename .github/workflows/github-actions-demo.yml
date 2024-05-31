@@ -16,4 +16,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-
+- name: Build and push Docker image
+          uses: docker/build-push-action@v2
+          with:
+            context: .
+            push: true
+            tags: ghcr.io/${{ github.jeremycardona}}/docker-alpine-extended:latest
